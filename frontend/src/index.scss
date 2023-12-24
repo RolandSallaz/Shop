@@ -2,7 +2,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-
 }
 
 body {
@@ -11,7 +10,8 @@ body {
   min-width: 320px;
   background-color: #030303;
   color: white;
-  font-family: 'Poppins','Lato', 'Roboto', sans-serif;
+  font-family: "Poppins", "Lato", "Roboto", sans-serif;
+  margin-top:38px;
 }
 
 h1,

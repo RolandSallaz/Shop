@@ -1,12 +1,22 @@
+@import '../variables';
+
 .footer {
-  margin: 48px 53px 0;
+  border-top: 2px solid $gray-color;
   display: flex;
   flex-direction: column;
+  justify-items: center;
+  width: 90%;
+  height: 180px;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    margin: 35px 26px 0;
+  }
 
   &__text {
-    margin-bottom: 20px;
     opacity: 0.5;
     font-size: 20px;
+    margin-bottom: 21px;
   }
 }
 

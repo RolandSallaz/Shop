@@ -1,5 +1,16 @@
-.main {
+@import "../variables";
+
+#root {
   min-height: 100vh;
   display: flex;
+}
 
+.main {
+  border-left: 2px solid $gray-color;
+  flex-grow: 1;
+  &-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 40px 0;
+  }
 }

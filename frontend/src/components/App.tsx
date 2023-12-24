@@ -1,15 +1,24 @@
-import { useState } from 'react'
-import './App.scss'
+import {useState} from "react";
+import "./App.scss";
 import {Sidebar} from "./Sidebar";
+import {Header} from "./Header";
+import {Route, Routes} from "react-router-dom";
+import {Main} from "./Main";
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
 
-  return (
-    <main className={'main'}>
-      <Sidebar/>
-    </main>
-  )
+    return (
+        <>
+            <Sidebar/>
+            <div className={'main-container'}>
+                <Header/>
+                <Routes>
+                    <Route path={'/'} element={<Main/>}/>
+                </Routes>
+            </div>
+        </>
+    );
 }
 
-export default App
+export default App;

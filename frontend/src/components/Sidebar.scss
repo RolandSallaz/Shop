@@ -1,14 +1,18 @@
+@import '../variables';
+
 .sidebar {
   max-width: 460px;
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
   gap: 26px;
+  flex-grow: 1;
 }
 
 .leftSide-container {
-  margin: 38px 0 48px;
   display: flex;
   flex-direction: column;
+  position: -webkit-sticky;
   position: sticky;
+  top: 38px;
+  height: 100vh;
 }
