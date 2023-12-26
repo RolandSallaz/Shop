@@ -14,4 +14,4 @@ export function Main(props: Props) {
             <div className={'test'}></div>
         </main>
     );
-};
+}

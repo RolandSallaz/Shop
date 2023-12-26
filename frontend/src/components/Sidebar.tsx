@@ -21,4 +21,4 @@ export function Sidebar(props: Props) {
             <Footer/>
         </div>
     );
-};
+}

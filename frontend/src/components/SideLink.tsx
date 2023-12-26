@@ -14,4 +14,4 @@ export function SideLink({link, src, text}: Props) {
             <p className={'sidebar-link__text'}>{text}</p>
         </NavLink>
     );
-};
+}

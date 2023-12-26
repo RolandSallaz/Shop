@@ -1,0 +1,30 @@
+.search{
+  display: flex;
+  border: 2px solid white;
+  height: 52px;
+  border-radius: 38px;
+  align-items: center;
+  width: 538px;
+  margin:38px 0;
+  &__image{
+    background-image: url("../assets/Search-Magnifier.svg");
+    height: 32px;
+    width: 32px;
+    margin-left:18px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__input{
+    width: 100%;
+    margin: 0 20px 0 12px;
+    height: 90%;
+    border: none;
+    background: none;
+    color:white;
+    font-size:16px;
+    font-weight: 600;
+    &:focus{
+      outline: none;
+    }
+  }
+}
