@@ -1,11 +1,13 @@
-.test {
-  width: 432px;
-  height: 296px;
-}
-
 .main {
   display: flex;
   flex-wrap: wrap;
   gap:36px;
-
 }
+
+.cards{
+  margin: 52px 48px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap:38px;
+}
+
