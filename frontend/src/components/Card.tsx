@@ -11,7 +11,7 @@ export function Card({name, image, price}: Props) {
         <div className={'card'}>
             <img src={image} className={'card__image'} alt={`card ${name}`}/>
             <div className={'card__container'}>
-                <p className={'card__name'}>{`${name} ${price}₽`}</p>
+                <p className={'card__name'}>{`${name} ${price} ₽`}</p>
                 <button className={'card__buy-button'}></button>
             </div>
         </div>

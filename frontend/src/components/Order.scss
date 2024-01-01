@@ -1,0 +1,47 @@
+@import "../variables";
+
+.order {
+  display: flex;
+  height: 160px;
+  align-items: center;
+  padding: 0 20px;
+  border-radius: 12px;
+  background-color: $gray-color;
+
+  &__image {
+    height: 128px;
+    width: 128px;
+    border-radius: 12px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  &__text {
+    font-size: 20px;
+    font-weight: 600;
+
+    &_name {
+      font-size: 30px;
+    }
+
+    &_price {
+      margin-left: auto;
+      font-size: 25px;
+      white-space: nowrap;
+    }
+  }
+
+  &__status {
+    &_Завершен {
+      color: #56c350;
+    }
+
+    &_Отменен {
+      color: red;
+    }
+  }
+}

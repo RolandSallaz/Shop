@@ -13,3 +13,16 @@
     flex-grow: 1;
   }
 }
+
+.button {
+  padding: 0 18px;
+  color:white;
+  font-size: 18px;
+  font-weight: 600;
+  background: none;
+  border-radius: 25px;
+  border: 2px solid white;
+  &:hover{
+    cursor: pointer;
+  }
+}

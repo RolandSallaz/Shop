@@ -20,6 +20,7 @@ export function Main(props: Props) {
                       image={'https://parkwaymusic.com/cdn/shop/files/GibsonNon-ReverseThunderbird-SparklingBurgundy-4_36796db6-f913-4612-979c-8878f7210d3f.jpg?v=1695667500'}
                       price={1}/>
             </section>
+            <button className={'cart'}></button>
         </main>
     );
 }

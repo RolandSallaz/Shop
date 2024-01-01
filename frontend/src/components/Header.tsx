@@ -8,8 +8,8 @@ export function Header(props: Props) {
         <header className={'header'}>
             <div className={'content'}><Search/>
                 <div className={'auth'}>
-                    <button className={'auth__button'}>Войти</button>
-                    <button className={'auth__button'}>Зарегистрироваться</button>
+                    <button className={'auth__button button'}>Войти</button>
+                    <button className={'auth__button button'}>Зарегистрироваться</button>
                 </div>
             </div>
         </header>
