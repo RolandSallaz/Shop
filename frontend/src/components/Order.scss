@@ -1,12 +1,29 @@
 @import "../variables";
 
 .order {
+  position: relative;
   display: flex;
   height: 160px;
   align-items: center;
   padding: 0 20px;
   border-radius: 12px;
   background-color: $gray-color;
+
+  &__delete-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
 
   &__image {
     height: 128px;
@@ -26,6 +43,9 @@
 
     &_name {
       font-size: 30px;
+      max-width: 130px;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     &_price {

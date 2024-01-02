@@ -1,7 +1,7 @@
 @import "../variables";
 
 .card {
-  width: 432px;
+  max-width: 400px;
   height: 296px;
   &__image {
     height: 260px;

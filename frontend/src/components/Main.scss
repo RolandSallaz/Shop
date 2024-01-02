@@ -3,29 +3,79 @@
 .main {
   display: flex;
   flex-wrap: wrap;
-  gap:36px;
+  gap: 36px;
 }
 
-.cards{
+.cards {
   margin: 52px 48px 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap:38px;
+  display: grid;
+  gap: 36px;
+  grid-template-columns: repeat(4, minmax(min-content, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(auto, 200px));
+  grid-auto-flow: row;
 }
 
 .cart {
   position: absolute;
-  right: 40px;
-  bottom: 40px;
-  height: 80px;
-  width: 80px;
-  background: url("../assets/buy.svg") center/60% no-repeat;
-  border-radius: 12px;
-  filter: brightness(0) invert(1);
-  border: none;
-  border: 2px solid black;
-  &:hover{
-    cursor: pointer;
+  right: 0;
+  bottom: 0;
+
+  &__button {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+    height: 80px;
+    width: 100px;
+    padding-right: 10px;
+    background: url("../assets/buy.svg") left/50% no-repeat;
+    border-radius: 12px;
+    filter: brightness(0) invert(1);
+    font-size: 30px;
+    font-weight: 600;
+    text-align: right;
+    margin: 0 20px;
+
+    &_buy {
+      width: 100%;
+      font-size: 23px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
+  }
+
+  &__container {
+    position: relative;
+    bottom: 40px;
+    top: auto;
+    right: 170px;
+    width: 400px;
+    min-height: 180px;
+    border: 1px solid white;
+    border-radius: 12px;
+    background-color: black;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  &__info {
+    width: 190px;
+    position: absolute;
+    left: -200px;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+  }
+  &__text{
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
   }
 }
 
