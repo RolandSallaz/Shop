@@ -81,16 +81,13 @@ export async function login(req: Request, res: Response, next: NextFunction) {
     const user: IUser = await db.one('SELECT * FROM users WHERE email = $1', [
       email,
     ]);
-    if (!user) {
-      throw new CustomError(401, 'Неправильные почта или пароль');
-    }
     bcrypt.compare(password, user.password!).then((matched) => {
       if (!matched) {
-        throw new CustomError(401, 'Неправильные почта или пароль');
+        return next(new CustomError(401, 'Неправильные почта или пароль'));
       }
       return sendUserDataWithoutPassword({ user, res });
     });
   } catch (err) {
-    next(err);
+    return next(new CustomError(401, 'Неправильные почта или пароль'));
   }
 }
