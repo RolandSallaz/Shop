@@ -1,28 +1,24 @@
-import express from "express";
+import express from 'express';
+
+import cookieParser from 'cookie-parser';
+import { PORT, db } from './config';
+import router from './routes';
+import errorHandler from './middlewares/errorHandler';
+
 const app = express();
-import dotenv from 'dotenv';
-dotenv.config();
-const {
-  PORT = 3000,
-  PG_NAME='postgres',
-  PG_PASSWORD,
-  PG_HOST = "localhost",
-  PG_PORT = 5432,
-  PG_DB_NAME = 'TestDb',
-} = process.env;
-import pgPromise from "pg-promise";
 
-const pgp = pgPromise();
-const db = pgp(`postgres://${PG_NAME}:${PG_PASSWORD}@${PG_HOST}:${PG_PORT}/${PG_DB_NAME}`);
 db.connect()
-  .then((obj) => {
-    obj.done(); // Возвращаем соединение в пул
-    console.log("Успешное подключение к базе данных");
+  .then((client) => {
+    client.done(); // Возвращаем соединение в пул
+    console.log('Успешное подключение к базе данных');
   })
-  .catch((error) => {
-    console.error("Ошибка подключения к базе данных:", error);
+  .catch((error: Error) => {
+    throw new Error(`Ошибка подключения к базе данных: ${error}`);
   });
-
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.use(cookieParser());
+app.use(express.json());
+app.use(router);
+app.use(errorHandler);
+app.listen(PORT, () => {
+  console.log('Server is running on port 3000');
 });
