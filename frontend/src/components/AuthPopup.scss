@@ -1,0 +1,45 @@
+.auth-popup {
+  position: absolute;
+  left:0;
+  right: 0;
+  bottom: 0;
+  top:0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.auth-form {
+  cursor: auto;
+  height: 400px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  border-radius: 12px;
+  box-sizing:content-box;
+  padding: 40px;
+  border: 2px solid white;
+  gap:20px;
+  &__input {
+    border: 1px solid white;
+    border-radius: 12px;
+    height: 50px;
+    font-size: 20px;
+    padding: 0 20px;
+  }
+  &__heading {
+    font-size: 35px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  &__submit-button{
+    margin-top: auto;
+    height: 65px;
+    font-size: 25px;
+  }
+}
