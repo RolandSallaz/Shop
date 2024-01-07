@@ -1,7 +1,9 @@
 import './AuthPopup.scss'
 import {ChangeEvent, SyntheticEvent, useState} from "react";
-import {IAuth} from "../utils/types";
+import {IAuth, IAuthData} from "../utils/types";
 import {auth} from "../utils/Api";
+import {authApi} from "../services/actions/auth";
+import {useDispatch} from "../services/store";
 
 type Props = {
     isOpened: boolean,
@@ -10,7 +12,8 @@ type Props = {
 };
 
 export function AuthPopup({onCloseClick, isOpened, type}: Props) {
-    const [inputData, setInputData] = useState<{email:string,password:string}>({email:'',password:''})
+    const [inputData, setInputData] = useState<IAuthData>({email:'',password:''})
+    const dispatch = useDispatch();
     function onBackgroundClick(e: SyntheticEvent) {
         if (e.target == e.currentTarget) {
             onCloseClick();
@@ -19,7 +22,9 @@ export function AuthPopup({onCloseClick, isOpened, type}: Props) {
 
     function handleSubmit(e: SyntheticEvent) {
         e.preventDefault()
-        auth(type,inputData).then(console.log).catch(console.log)
+        dispatch(authApi(type,inputData)).then(()=>{
+            onCloseClick();
+        });
     }
     function handleInputChange(e:ChangeEvent<HTMLInputElement>) {
         const target = e.target;

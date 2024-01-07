@@ -11,7 +11,6 @@ import {AuthPopup} from "./AuthPopup";
 import {IAuth} from "../utils/types";
 
 function App() {
-    const [count, setCount] = useState(0);
     const [authPopupData, setAuthPopupData] = useState<{ isOpened: boolean, type: IAuth }>({
         isOpened: false,
         type: 'register'

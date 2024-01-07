@@ -11,9 +11,14 @@ export interface IOrder {
 
 export type ICard = Pick<IOrder, "name" | "image" | "price">;
 
-export interface  IUser {
+export interface IUser {
     email: string,
     id: number
 }
 
 export type IAuth = 'register' | 'login'
+
+export interface IAuthData {
+    email: string,
+    password: string
+}

@@ -1,4 +1,4 @@
-import {IAuth, IUser} from "./types";
+import {IAuth, IAuthData, IUser} from "./types";
 
 const config = {
     url: 'http://localhost:3000',
@@ -15,7 +15,7 @@ function _getResponse(res) {
 export function auth(authType: IAuth, {
     email,
     password
-}: { email: string, password: string }): Promise<IUser> {
+}: IAuthData): Promise<IUser> {
     return fetch(`${config.url}/${authType}`, {
         method: "POST",
         headers: config.headers,
