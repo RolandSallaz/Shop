@@ -21,7 +21,6 @@ async function sendUserDataWithoutPassword({
     .cookie('jwt', token, {
       maxAge: 3600000,
       httpOnly: true,
-      sameSite: true,
     })
     .send({ ...userWithoutPassword });
 }
@@ -89,5 +88,32 @@ export async function login(req: Request, res: Response, next: NextFunction) {
     });
   } catch (err) {
     return next(new CustomError(401, 'Неправильные почта или пароль'));
+  }
+}
+
+export async function logout(req: Request, res: Response, next: NextFunction) {
+  try {
+    return res.clearCookie('jwt').send({ message: 'Выполнен выход' });
+  } catch (err) {
+    next(err);
+  }
+}
+
+export async function checkAviableEmail(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
+  try {
+    const findEmail = await db.oneOrNone(
+      'SELECT * FROM users WHERE email = $1',
+      [req.params.email],
+    );
+    if (!findEmail) {
+      return res.send({ message: 'Емейл свободен' });
+    }
+    return next(new CustomError(409, 'Емейл занят'));
+  } catch (err) {
+    next(err);
   }
 }
