@@ -29,3 +29,9 @@ export function logout(): Promise<unknown> {
         method: "POST", credentials: 'include', headers: config.headers
     }).then(_getResponse)
 }
+
+export function checkEmail({email}: { email: string }) {
+    return fetch(`${config.url}/checkEmail/${email}`, {
+        headers: config.headers
+    }).then(_getResponse)
+}

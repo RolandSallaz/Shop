@@ -1,10 +1,10 @@
 .auth-popup {
   position: absolute;
-  left:0;
+  left: 0;
   right: 0;
   bottom: 0;
-  top:0;
-  background-color: rgba(0,0,0,0.5);
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,10 +21,11 @@
   justify-content: center;
   background-color: black;
   border-radius: 12px;
-  box-sizing:content-box;
+  box-sizing: content-box;
   padding: 40px;
   border: 2px solid white;
-  gap:20px;
+  gap: 20px;
+
   &__input {
     border: 1px solid white;
     border-radius: 12px;
@@ -32,14 +33,36 @@
     font-size: 20px;
     padding: 0 20px;
   }
+
   &__heading {
     font-size: 35px;
     font-weight: 600;
     margin-bottom: 20px;
   }
-  &__submit-button{
+
+  &__submit-button {
     margin-top: auto;
     height: 65px;
     font-size: 25px;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+
+  &__email-check {
+    height: 30px;
+    font-size: 20px;
+
+    &_status {
+      &_true {
+        color: green;
+      }
+
+      &_false {
+        color: red;
+      }
+    }
   }
 }
