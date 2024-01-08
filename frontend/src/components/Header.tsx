@@ -1,7 +1,8 @@
 import './Header.scss';
 import {Search} from "./Search";
-import {useSelector} from "../services/store";
+import {useDispatch, useSelector} from "../services/store";
 import {IAuthState} from "../services/reducers/auth";
+import {authLogout} from "../services/actions/auth";
 
 type Props = {
     onOpenRegister: () => void,
@@ -9,6 +10,12 @@ type Props = {
 };
 
 export function Header({onOpenRegister, onOpenLogin}: Props) {
+    const dispatch = useDispatch()
+
+    function logout() {
+        dispatch(authLogout());
+    }
+
     const auth = useSelector((store): IAuthState => store.auth);
     return (
         <header className={'header'}>
@@ -18,7 +25,7 @@ export function Header({onOpenRegister, onOpenLogin}: Props) {
                         (
                             <>
                                 <p className={'auth__user-data'}>{auth.userData.email}</p>
-                                <button className={'auth__signout button'}>Выйти</button>
+                                <button className={'auth__signout button'} onClick={logout}>Выйти</button>
                             </>
                         )
                         :

@@ -4,7 +4,7 @@ const config = {
     url: 'http://localhost:3000',
     headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
     }
 }
 
@@ -19,6 +19,13 @@ export function auth(authType: IAuth, {
     return fetch(`${config.url}/${authType}`, {
         method: "POST",
         headers: config.headers,
-        body: JSON.stringify({email,password}),
+        credentials: 'include',
+        body: JSON.stringify({email, password}),
+    }).then(_getResponse)
+}
+
+export function logout(): Promise<unknown> {
+    return fetch(`${config.url}/logout`, {
+        method: "POST", credentials: 'include', headers: config.headers
     }).then(_getResponse)
 }

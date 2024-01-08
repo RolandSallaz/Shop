@@ -1,5 +1,5 @@
 import {IAuth, IAuthData, IUser} from "../../utils/types";
-import {auth} from "../../utils/Api";
+import {auth, logout} from "../../utils/Api";
 import {Dispatch} from "redux";
 import {AppThunk} from "../store";
 
@@ -32,6 +32,12 @@ export type TAuthActions = TAuth
 //             })
 //         })
 // }
+
+export const authLogout = (): AppThunk<Promise<unknown>> => (dispatch: Dispatch) => {
+    return logout().then(() => dispatch({
+        type: authActions[authActions.LOGOUT]
+    })).catch(console.log)
+}
 
 export const authApi = (authType: IAuth, {
     email,
